@@ -3,7 +3,7 @@ import sys
 
 from viam.components.board import Board
 from viam.module.module import Module
-from .my_breadboard import MyBreadboard
+from my_breadboard import MyBreadboard
 
 async def main(address: str):
     """This function creates and starts a new module, after adding all desired resources.
