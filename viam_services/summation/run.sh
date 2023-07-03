@@ -7,4 +7,4 @@ export PYTHONPATH="/Users/felix.reichenbach/Documents/GitHub/viam-playground/via
 # or handle forwarding termination signals manually
 #exec poetry run python -m src.main $@
 
-exec python3 -m my_service.main $@
+exec python3 -m summation.main $@
