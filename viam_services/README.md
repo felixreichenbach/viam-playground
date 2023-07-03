@@ -1,1 +1,2 @@
-Separate the gizmo service
+# Viam Custom Services Teamplate
+
