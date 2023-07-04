@@ -2,7 +2,7 @@ import asyncio
 
 from viam.module.module import Module
 
-from ..summation import MySummationService, SummationService
+from summation import MySummationService, SummationService
 
 
 async def main():
