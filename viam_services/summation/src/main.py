@@ -2,7 +2,7 @@ import asyncio
 
 from viam.module.module import Module
 
-from summation import MySummationService, SummationService
+from .my_summation import MySummationService, SummationService
 
 
 async def main():
@@ -11,7 +11,8 @@ async def main():
     """
 
     module = Module.from_args()
-    module.add_model_from_registry(SummationService.SUBTYPE, MySummationService.MODEL)
+    module.add_model_from_registry(
+        SummationService.SUBTYPE, MySummationService.MODEL)
     await module.start()
 
 

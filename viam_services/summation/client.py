@@ -1,6 +1,6 @@
 import asyncio
 
-from summation import SummationService
+from src.my_summation import SummationService
 
 from viam import logging
 from viam.robot.client import RobotClient
@@ -8,8 +8,10 @@ from viam.rpc.dial import Credentials, DialOptions
 
 
 async def connect():
-    creds = Credentials(type="robot-location-secret", payload="<ROBOT_LOCATION_SECRET>")
-    opts = RobotClient.Options(refresh_interval=0, dial_options=DialOptions(credentials=creds), log_level=logging.DEBUG)
+    creds = Credentials(type="robot-location-secret",
+                        payload="<ROBOT_LOCATION_SECRET>")
+    opts = RobotClient.Options(refresh_interval=0, dial_options=DialOptions(
+        credentials=creds), log_level=logging.DEBUG)
     return await RobotClient.at_address("<ROBOT_ADDRESS>", opts)
 
 

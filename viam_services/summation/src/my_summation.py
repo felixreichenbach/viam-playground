@@ -8,7 +8,7 @@ from viam.proto.common import ResourceName
 from viam.resource.base import ResourceBase
 from viam.resource.types import Model
 
-from summation.api import SummationService
+from .api import SummationService
 
 
 class MySummationService(SummationService, Reconfigurable):

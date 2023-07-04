@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+
 @typing_extensions.final
 class SumRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -23,17 +24,23 @@ class SumRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     NUMBERS_FIELD_NUMBER: builtins.int
     name: builtins.str
+
     @property
-    def numbers(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.float]: ...
+    def numbers(
+        self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.float]: ...
+
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         numbers: collections.abc.Iterable[builtins.float] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "numbers", b"numbers"]) -> None: ...
+    def ClearField(
+        self, field_name: typing_extensions.Literal["name", b"name", "numbers", b"numbers"]) -> None: ...
+
 
 global___SumRequest = SumRequest
+
 
 @typing_extensions.final
 class SumResponse(google.protobuf.message.Message):
@@ -41,11 +48,15 @@ class SumResponse(google.protobuf.message.Message):
 
     SUM_FIELD_NUMBER: builtins.int
     sum: builtins.float
+
     def __init__(
         self,
         *,
         sum: builtins.float = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["sum", b"sum"]) -> None: ...
+
+    def ClearField(
+        self, field_name: typing_extensions.Literal["sum", b"sum"]) -> None: ...
+
 
 global___SumResponse = SumResponse

@@ -30,8 +30,8 @@ from viam.resource.rpc_service_base import ResourceRPCServiceBase
 from viam.resource.types import RESOURCE_TYPE_SERVICE, Subtype
 from viam.services.service_base import ServiceBase
 
-from .proto.summation_grpc import SummationServiceBase, SummationServiceStub
-from .proto.summation_pb2 import SumRequest, SumResponse
+from proto.summation_grpc import SummationServiceBase, SummationServiceStub
+from proto.summation_pb2 import SumRequest, SumResponse
 
 
 class SummationService(ServiceBase):
