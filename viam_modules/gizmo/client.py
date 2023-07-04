@@ -1,6 +1,6 @@
 import asyncio
 
-from gizmo import Gizmo
+from src.my_gizmo import Gizmo
 
 from viam import logging
 from viam.robot.client import RobotClient

@@ -8,7 +8,7 @@ from viam.proto.common import ResourceName
 from viam.resource.base import ResourceBase
 from viam.resource.types import Model, ModelFamily
 
-from api import Gizmo
+from .api import Gizmo
 
 
 class MyGizmo(Gizmo, Reconfigurable):
