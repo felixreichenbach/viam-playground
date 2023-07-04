@@ -91,7 +91,8 @@ class GizmoService(GizmoServiceBase, ResourceRPCServiceBase):
         args = [request.arg1 for request in requests]
         names = [request.name for request in requests]
         if len(set(names)) != 1:
-            raise Exception("Unexpectedly received requests for multiple Gizmos")
+            raise Exception(
+                "Unexpectedly received requests for multiple Gizmos")
         name = names[0]
         gizmo = self.get_resource(name)
         resp = await gizmo.do_one_client_stream(args)
@@ -116,7 +117,8 @@ class GizmoService(GizmoServiceBase, ResourceRPCServiceBase):
                 name = request.name
                 continue
             if name != request.name:
-                raise Exception("Unexpectedly received requests for multiple Gizmos")
+                raise Exception(
+                    "Unexpectedly received requests for multiple Gizmos")
         gizmo = self.get_resource(name)
 
         resps = await gizmo.do_one_bidi_stream(args)

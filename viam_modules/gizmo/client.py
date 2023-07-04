@@ -8,7 +8,8 @@ from viam.rpc.dial import Credentials, DialOptions
 
 
 async def connect():
-    creds = Credentials(type="robot-location-secret", payload="<ROBOT_LOCATION_SECRET>")
+    creds = Credentials(type="robot-location-secret",
+                        payload="<ROBOT_LOCATION_SECRET>")
     opts = RobotClient.Options(
         refresh_interval=0,
         dial_options=DialOptions(credentials=creds),
