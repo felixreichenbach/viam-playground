@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service FooService {
+  rpc SetState (Request) returns (Response);
+}
+
+message Request {
+  string name = 1;
+  bool state = 2;
+}
+
+message Response {
+  bool state = 3;
+}
