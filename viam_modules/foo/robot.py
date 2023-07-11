@@ -23,7 +23,7 @@ async def main():
 
     foo = Foo.from_robot(robot, name="foo1")
     resp = await foo.set_state(True)
-    print("do_one result:", resp)
+    print("The state is:", resp)
 
     await robot.close()
 

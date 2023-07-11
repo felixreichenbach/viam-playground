@@ -1,7 +1,6 @@
 import asyncio
 
 from viam.module.module import Module
-from viam.components.arm import Arm
 
 from ..src import Foo, MyFoo
 
