@@ -9,6 +9,13 @@ from viam.proto.app.data import Filter
 
 import viam
 
+"""
+    .env file structure:
+    ADDRESS=robot.organisation.viam.cloud
+    SECRET=yoursecret
+
+"""
+
 load_dotenv()
 
 async def main():
