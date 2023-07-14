@@ -9,14 +9,16 @@ from viam.app.client import AppClient
 from viam.app.data.client import DataClient, Filter
 from viam.proto.app.data import CaptureInterval
 
+
+from google.protobuf.timestamp_pb2 import Timestamp
+
 """
-    .env file structure:
+    Credentials are imported through a .env file with the following structure:
     ADDRESS=robot.organisation.viam.cloud
     SECRET=yoursecret
-
 """
-
 load_dotenv()
+
 
 async def main():
     address = os.getenv('ADDRESS')
@@ -31,23 +33,31 @@ async def main():
     app: AppClient = await AppClient.create(dial_opts)
     data_client: DataClient = app.data_client
 
-    # Upload binary data to the cloud to be available under Data/Files
-    #with open('./media/sample_img.png', 'rb') as f:
+    # Configure Time Interval
+    date_start = int(datetime(2023, 7, 23, 14, 45, 36).timestamp())
+    date_end = int(datetime(2022, 5, 23, 14, 0, 0).timestamp())
+
+    print("// Selected Interval")
+    print(f"Start: {datetime.fromtimestamp(date_start)}")
+    print(f"Start: {datetime.fromtimestamp(date_end)}")
+
+    # Upload binary data to the cloud to be available under Data/Files in the Viam app
+    # with open('./media/sample_img.png', 'rb') as f:
     #    data = f.read()
-    #await data_client.file_upload(part_id = 'eba0d362-aa1b-4572-83be-a25ae9e5cd65', component_type = None, component_name = None, method_name = None, method_parameters = None, file_extension = None, tags = None, file_name="sample", data=data)
+    # await data_client.file_upload(part_id = 'eba0d362-aa1b-4572-83be-a25ae9e5cd65', component_type = None, component_name = None, method_name = None, method_parameters = None, file_extension = None, tags = None, file_name="sample", data=data)
 
     # Export Image metadata data as JSON structure to file
-    data = await data_client.binary_data_by_filter(filter=Filter(component_name="Felix", interval=CaptureInterval(start=datetime.now(), end=datetime.now())), dest="./image_metadata.json")
-    
+    # data = await data_client.binary_data_by_filter(filter=Filter(component_name="mac-pro-legacy", interval=CaptureInterval(start=Timestamp(seconds=date_start), end=Timestamp(seconds=date_end))), dest="./image_metadata.json")
+    data = await data_client.binary_data_by_filter(filter=Filter(component_name="camera", interval=CaptureInterval(start=Timestamp(seconds=date_start), end=Timestamp(seconds=date_end))), dest="./image_metadata.json")
+
     # Export sensors data as JSON structure to file
-    #data = await data_client.tabular_data_by_filter(dest="./viam.json")
+    # data = await data_client.tabular_data_by_filter(filter=Filter(component_name="accelerometer", interval=CaptureInterval(start=Timestamp(seconds=date_start), end=Timestamp(seconds=date_end))), dest="./sensor.json")
+    data = await data_client.tabular_data_by_filter(filter=Filter(component_name="accelerometer"), dest="./sensor.json")
 
-    # Load data into Pandas data frame 
-    #data = await data_client.tabular_data_by_filter()
-    #df = pd.DataFrame(data)
-    #print(df)
-
-
+    # Load data into Pandas data frame
+    # data = await data_client.tabular_data_by_filter()
+    # df = pd.DataFrame(data)
+    # print(df)
 
 
 if __name__ == '__main__':
