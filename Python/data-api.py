@@ -34,8 +34,8 @@ async def main():
     data_client: DataClient = app.data_client
 
     # Configure Time Interval
-    date_start = int(datetime(2023, 7, 23, 14, 45, 36).timestamp())
-    date_end = int(datetime(2022, 5, 23, 14, 0, 0).timestamp())
+    date_start = int(datetime(2023, 5, 23, 14, 45, 29).timestamp()) # past
+    date_end = int(datetime(2023, 7, 23, 14, 45, 36).timestamp()) # more recent
 
     print("// Selected Interval")
     print(f"Start: {datetime.fromtimestamp(date_start)}")
