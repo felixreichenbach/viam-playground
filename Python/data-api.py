@@ -34,7 +34,7 @@ async def main():
     # d = await data_client.tabular_data_by_filter(Filter())
     # print(f"data are! {d}")
 
-    df = await data_client.tabular_data_by_filter(dest="./viam.txt")
+    df = await data_client.tabular_data_by_filter(dest="./viam.json")
     print(df)
 
 if __name__ == '__main__':
