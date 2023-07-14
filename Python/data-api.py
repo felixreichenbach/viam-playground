@@ -1,6 +1,7 @@
 from datetime import datetime
 from dotenv import load_dotenv
 import os
+import sys
 import asyncio
 import pandas as pd
 
@@ -35,7 +36,11 @@ async def main():
 
     # Configure Time Interval
     date_start = int(datetime(2023, 5, 23, 14, 45, 29).timestamp()) # past
-    date_end = int(datetime(2023, 7, 23, 14, 45, 36).timestamp()) # more recent
+    date_end = int(datetime(2023, 5, 23, 14, 45, 30).timestamp()) # more recent
+
+    if date_start > date_end:
+        print("Verify interval! date_start must be before date_end!")
+        sys.exit()
 
     print("// Selected Interval")
     print(f"Start: {datetime.fromtimestamp(date_start)}")
